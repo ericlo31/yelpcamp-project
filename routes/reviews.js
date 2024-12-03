@@ -20,12 +20,12 @@ const validateReview = (req, res, next) => {
 
 // Route to create a new review for a campground
 router.post('/', validateReview, catchAsync(async (req, res) => {
-    console.log(req.params)
     const campground = await Campground.findById(req.params.id); // Find the campground by ID
     const review = new Review(req.body.review);                  // Create a new review using form data
     campground.reviews.push(review);                             // Add the review to the campground's reviews array
     await review.save();                                         // Save the review to the database
     await campground.save();                                     // Save the updated campground
+    req.flash('success', 'New review added!');
     res.redirect(`/campgrounds/${campground._id}`);              // Redirect to the campground's details page
 }));
 

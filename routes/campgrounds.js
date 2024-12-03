@@ -31,6 +31,7 @@ router.get('/new', (req, res) => {
 router.post('/', validateCampground, catchAsync(async (req, res, next) => {
     const campground = new Campground(req.body.campground); // Create a new campground using form data
     await campground.save();                               // Save the campground to the database
+    req.flash('success', 'Succesfully added a new campground')
     res.redirect(`/campgrounds/${campground._id}`);        // Redirect to the new campground's details page
 }));
 
@@ -50,6 +51,7 @@ router.get('/:id/edit', catchAsync(async (req, res) => {
 router.put('/:id', validateCampground, catchAsync(async (req, res) => {
     const { id } = req.params;                                   // Extract the ID from the request parameters
     const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground }); // Update campground details
+    req.flash('success', 'Successfully updated campground!');
     res.redirect(`/campgrounds/${campground._id}`);             // Redirect to the updated campground's details page
 }));
 
