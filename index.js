@@ -66,9 +66,9 @@ app.all('*', (req, res, next) => {
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-    const { statusCode = 500 } = err;                            // Default status code is 500 (internal server error)
-    if (!err.message) err.message = 'Oh No, Something Went Wrong!'; // Default error message
-    res.status(statusCode).render('error', { err });             // Render error page with the error details
+    const { statusCode = 500 } = err;                                   // Default status code is 500 (internal server error)
+    if (!err.message) err.message = 'Oh No, Something Went Wrong!';     // Default error message
+    res.status(statusCode).render('error', { err });                    // Render error page with the error details
 });
 
 // Start the server on port 3000

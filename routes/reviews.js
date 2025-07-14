@@ -25,7 +25,7 @@ router.post('/', validateReview, catchAsync(async (req, res) => {
     campground.reviews.push(review);                             // Add the review to the campground's reviews array
     await review.save();                                         // Save the review to the database
     await campground.save();                                     // Save the updated campground
-    req.flash('success', 'New review added!');
+    req.flash('success', 'New review added!');                   // Message showing when a review is added
     res.redirect(`/campgrounds/${campground._id}`);              // Redirect to the campground's details page
 }));
 
