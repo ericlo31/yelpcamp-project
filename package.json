@@ -7,6 +7,7 @@
     "express": "^4.21.0",
     "express-session": "^1.18.1",
     "joi": "^17.13.3",
+    "method-override": "^3.0.0",
     "mongoose": "^8.6.3"
   },
   "name": "yelpcamp",
@@ -15,11 +16,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --trace-deprecation index.js"
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "This is a Campground Review Application created for my personal portfolio during The Web Developer Bootcamp",
-  "devDependencies": {}
+  "description": "This is a Campground Review Application created for my personal portfolio during The Web Developer Bootcamp"
 }
